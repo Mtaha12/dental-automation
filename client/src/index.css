@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0ea5e9;
+  --secondary: #14b8a6;
+  --background: #f8fafc;
+  --surface: rgba(255, 255, 255, 0.75);
+  --text: #0f172a;
+}
+
+:root[data-theme="dark"] {
+  --background: #0b1220;
+  --surface: rgba(15, 23, 42, 0.72);
+  --text: #e2e8f0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(14, 165, 233, 0.16), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(20, 184, 166, 0.14), transparent 30%),
+    var(--background);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.bg-app {
+  background: transparent;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(20, 184, 166, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.glass-card {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 50px -28px rgba(15, 23, 42, 0.4);
+  animation: card-enter 380ms ease;
+}
+
+.section-title {
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.badge {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0369a1;
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  padding: 0.68rem 0.85rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+}
+
+:root[data-theme="dark"] .input {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(71, 85, 105, 0.8);
+  color: #e2e8f0;
+}
+
+.btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+  padding: 0.68rem 1.2rem;
+  color: white;
+  font-weight: 600;
+  transition: transform 180ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-soft {
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  padding: 0.68rem 1.2rem;
+  font-weight: 600;
+}
+
+.fc .fc-toolbar-title {
+  font-family: "Sora", sans-serif;
+}
+
+/* FullCalendar Styling */
+.fc {
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+}
+
+.fc .fc-button-primary {
+  background-color: #0ea5e9;
+  border-color: #0ea5e9;
+}
+
+.fc .fc-button-primary:hover {
+  background-color: #0284c7;
+  border-color: #0284c7;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #0284c7;
+  border-color: #0284c7;
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: #cbd5e1;
+  border-color: #cbd5e1;
+}
+
+.fc .fc-daygrid-day.fc-day-other {
+  background-color: rgba(15, 23, 42, 0.02);
+}
+
+.fc .fc-daygrid-day:hover {
+  background-color: rgba(14, 165, 233, 0.08);
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(14, 165, 233, 0.15);
+}
+
+.fc .fc-col-header-cell {
+  background-color: rgba(15, 23, 42, 0.04);
+  color: var(--text);
+  padding: 12px 0;
+  font-weight: 600;
+}
+
+:root[data-theme="dark"] .fc .fc-col-header-cell {
+  background-color: rgba(15, 23, 42, 0.3);
+}
+
+.fc .fc-daygrid-day-number {
+  padding: 8px;
+}
+
+.fc .fc-event {
+  background-color: #0ea5e9;
+  border-color: #0ea5e9;
+  cursor: pointer;
+}
+
+.fc .fc-event:hover {
+  background-color: #0284c7;
+  border-color: #0284c7;
+}
+
+.fc .fc-daygrid-day-frame {
+  cursor: pointer;
+}
+
+.fc button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fc .fc-toolbar-chunk {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .fc .fc-toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fc .fc-toolbar-chunk {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .fc .fc-button-group {
+    flex-wrap: wrap;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .btn-primary,
+  .btn-soft {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
